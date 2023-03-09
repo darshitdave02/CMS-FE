@@ -1,0 +1,27 @@
+.view-type {
+    background-color: rgb(235,238,253);
+    width: 60vw;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+}
+
+.view-type-heading {
+   
+    margin-top: 20px;
+}
+
+.view-type-title {
+    color: rgb(79,79,79);
+    font-size: 2.5rem;
+    font-weight: bolder;
+    display: flex;
+    gap: 5px
+}
+
+.view-type-subtitle {
+    color: rgb(79,79,79);
+    font-size: 1.5rem;
+    font-weight: 400;
+    display: flex;
+    gap: 5px
+}

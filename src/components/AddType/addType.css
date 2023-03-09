@@ -1,0 +1,14 @@
+.type-title {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+.add-type {
+    background-color: rgb(212,214,228);
+    width: 20vw;  
+    min-height: 100vh;  
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    color: rgb(95, 96, 98);
+}

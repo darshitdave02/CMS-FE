@@ -1,0 +1,10 @@
+.content-type {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-type-body {
+    display: flex;
+    flex-direction: row;
+    
+}

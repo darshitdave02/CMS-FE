@@ -1,0 +1,27 @@
+.type-card {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.type-card-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.column {
+    color: rgb(62,62,62);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.column-type {
+    color: rgb(173,173,173);
+    font-size: 1rem;
+    font-weight: bold;
+   
+}
+

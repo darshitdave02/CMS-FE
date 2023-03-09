@@ -1,0 +1,99 @@
+.image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 60vw;
+    background-color: rgb(243, 238, 248);
+}
+
+.page-title {
+    line-height: 40px;
+}
+
+.page-title h2 {
+    font-weight: 700;
+    font-size: 50px;
+    color: rgb(90, 87, 87);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.image-container img {
+    object-fit: contain;
+}
+
+.login-container {
+    height: 100vh;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(45, 43, 43);
+}
+
+.title {
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 8rem;
+
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+.email-container h4 {
+    font-weight: 500;
+    font-size: medium;
+    color: rgb(114, 109, 109);
+    margin-bottom: 5px;
+}
+
+.email-container input {
+    width: 250px;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.password-container h4 {
+    font-weight: 500;
+    font-size: medium;
+    color: rgb(114, 109, 109);
+    margin-bottom: 5px;
+}
+
+.password-container input {
+    width: 250px;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.form-container button {
+    width: 250px;
+    height: 35px;
+    border-radius: 7px;
+    border: none;
+    margin: 20px;
+    font-size: small;
+    background-image: linear-gradient(to left, rgb(119, 44, 173), rgb(99, 109, 199));
+    color: white;
+}

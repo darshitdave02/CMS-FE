@@ -1,0 +1,12 @@
+.type-header {
+    display: flex;
+    background-color: white;
+    width: 80vw;
+}
+
+.title-type-text {
+    color: rgb(75, 75, 75);
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin: 0.8rem;
+}

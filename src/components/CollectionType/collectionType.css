@@ -1,0 +1,47 @@
+.collection-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.collections {
+    background-color: rgb(51, 51, 51);
+    width: 20vw;
+    min-height: 100vh;
+    color: ghostwhite;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+}
+ .collections > img {
+    color: ghostwhite;
+ }
+
+ .collection-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+ }
+
+.collection-title {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.bullet {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: ghostwhite;
+}
+
+.ct-builder {
+    /* background-color: black; */
+    color: white;
+    font-weight: bold;
+    margin-top: 15px;
+    
+    /* padding: 5px; */
+}
