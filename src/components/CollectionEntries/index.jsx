@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 // import makeRequest from '../../utils/makeRequest';
 // import { BACKEND_URL } from '../../constants/apiEndPoints';
 
-export default function CollectionEntries() {
+export default function CollectionEntries(props) {
   //   const [data, setData] = useState([]);
 
   //   useEffect(() => {
@@ -50,7 +50,7 @@ export default function CollectionEntries() {
           <div onClick={() => setShowModal(true)} className="new-entry-div">
             <span className="new-entry-text">Add a new entry</span>
           </div>
-          <ModalForm onClose={() => setShowModal(false)} show={showModal} />
+          <ModalForm onClose={() => setShowModal(false)} show={showModal} collectionName={props.collectionName} />
         </div>
         <div className="table-content-title">
           <div className="content-entries-fields">
