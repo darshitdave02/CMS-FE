@@ -6,6 +6,7 @@ import Error from './pages/Error';
 import PageNotFound from './pages/PageNotFound';
 import LoginPage from './pages/LoginPage';
 import ContentTypeBuilder from './pages/ContentTypeBuilder';
+import CollectionView from './pages/CollectionView';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path={HOME_ROUTE} element={<LoginPage />} />
           <Route path={`${HOME_ROUTE}/dashboard`}element={<ContentTypeBuilder />} />
+          <Route path={`${HOME_ROUTE}/dashboard/collections/:collectionName`}element={<CollectionView />} />
           <Route path={`${ERROR_ROUTE}/:errorCode?`} element={<Error />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

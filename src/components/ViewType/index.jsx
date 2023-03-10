@@ -17,15 +17,16 @@ function ViewType(props) {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
+    
     try {
       const fetchData = async () => {
         const response = await makeRequest(
           BACKEND_URL,
           {
-            url: `/collections/${props.collectionName}`,
+            url: `/collections/fields/${props.collectionName}`,
             method: 'GET',
             headers: {
-              'Referrer-Policy': 'strict-origin-when-cross-origin',
+              // 'Referrer-Policy': 'strict-origin-when-cross-origin',
               Authorization: `Bearer ${token}`,
             },
           },
@@ -63,7 +64,7 @@ function ViewType(props) {
         collectionName={props.collectionName}
       />
 
-      {fields.map((item,idx) => (
+      {fields.map((item, idx) => (
         <TypeCard text={item} key={idx} />
       ))}
     </div>

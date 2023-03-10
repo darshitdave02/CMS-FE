@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import TitleHeader from '../TitleHeader';
 import { BACKEND_URL } from '../../constants/apiEndPoints';
 import './collectionType.css';
@@ -7,6 +8,7 @@ import makeRequest from '../../utils/makeRequest';
 
 function CollectionType() {
   const [arr, setArr] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -37,6 +39,10 @@ function CollectionType() {
     }
   }, []);
 
+  const handleCollectionClick = (collectionName) => {
+    navigate(`/dashboard/collections/${collectionName}`);
+  };
+
   return (
     <div className="collection-type">
       <TitleHeader />
@@ -49,7 +55,11 @@ function CollectionType() {
         </div>
         <div>
           {arr.map((item) => (
-            <div key={item.id} className="collection-list">
+            <div
+              key={item.id}
+              className="collection-list"
+              onClick={() => handleCollectionClick(item.collectionName)}
+            >
               <div className="bullet"></div>
               <div>{item.collectionName}</div>
             </div>

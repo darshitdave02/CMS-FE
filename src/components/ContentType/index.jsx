@@ -14,10 +14,10 @@ function ContentType() {
 
   return (
     <div className="content-type">
-      <ContentTypeHeader />
+      <ContentTypeHeader text={'Content Type' } />
       <div className="content-type-body">
         <AddType onCollectionClick={handleCollectionClick} />
-        <ViewType collectionName={collectionName ? collectionName : 'trial'} />
+        <ViewType collectionName={collectionName ? collectionName : 'my_table'} />
       </div>
     </div>
   );

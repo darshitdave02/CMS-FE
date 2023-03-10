@@ -33,12 +33,30 @@ export default function ModalInput(props) {
   };
 
   const handleCreateField = async () => {
-    // Implement the logic for creating a user
-    // ...
+    const token = localStorage.getItem('token');
+
+    const requestBody = {
+      name: props.collectionName,
+      fields: [`${name}`],
+    };
+    try {
+      await makeRequest(BACKEND_URL, {
+        method: 'POST',
+        url: '/types/fields/add',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+      },{data: requestBody}, null);
+      props.onClose();
+      setName('');
+      window.location.reload(); 
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   let handleCreate = handleCreateType; // Default to handleCreateType
-  if (props.text === 'User') {
+  if (props.text === 'Field') {
     handleCreate = handleCreateField;
   }
 
@@ -76,4 +94,5 @@ ModalInput.propTypes = {
   onClose: propTypes.func.isRequired,
   show: propTypes.bool.isRequired,
   text: propTypes.string,
+  collectionName: propTypes.string,
 };
