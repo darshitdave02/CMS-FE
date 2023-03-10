@@ -1,0 +1,24 @@
+.content-entries-fields {
+
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+}
+
+.content-fields-container {
+    margin-top: 20px;
+    height: 60px;
+    background-color: rgba(244, 246, 255, 255);
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 2px 3px #dddada;
+}
+
+.content-entries {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
