@@ -24,7 +24,7 @@ function ViewType(props) {
           BACKEND_URL,
           {
             url: `/collections/fields/${props.collectionName}`,
-            method: 'GET',
+            method: 'POST',
             headers: {
               // 'Referrer-Policy': 'strict-origin-when-cross-origin',
               Authorization: `Bearer ${token}`,

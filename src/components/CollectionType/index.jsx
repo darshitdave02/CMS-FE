@@ -65,7 +65,9 @@ function CollectionType() {
             </div>
           ))}
         </div>
-        <div className="ct-builder">CONTENT TYPE BUILDER</div>
+        <div onClick={() => navigate('/dashboard')} className="ct-builder">
+          CONTENT TYPE BUILDER
+        </div>
       </div>
     </div>
   );
