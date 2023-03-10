@@ -8,6 +8,7 @@ import CollectionEntryCard from '../CollectionEntryCard';
 
 export default function CollectionEntries(props) {
   const [data, setData] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -38,19 +39,19 @@ export default function CollectionEntries(props) {
 
   console.log(data);
 
-  const [showModal, setShowModal] = useState(false);
   return (
     <div>
       <div className="content-entry-container">
         <div className="content-entrie-title">
           <span className="entrie-count">{data.length} Entries Found</span>
-          <div onClick={() => setShowModal(true)} className="new-entry-div">
-            <span className="new-entry-text">Add a new entry</span>
+          <div  className="new-entry-div">
+            <span onClick={() => setShowModal(true)} className="new-entry-text">Add a new entry</span>
           </div>
           <ModalForm
             onClose={() => setShowModal(false)}
             show={showModal}
             collectionName={props.collectionName}
+            data={'New Entry'}
           />
         </div>
         <div className="table-content-title">
@@ -63,7 +64,7 @@ export default function CollectionEntries(props) {
         </div>
         
         {data.map((item, idx) => (
-          <CollectionEntryCard key={idx} data={item} />
+          <CollectionEntryCard key={idx} data={item} collectionName={props.collectionName} />
         ))}
 
         

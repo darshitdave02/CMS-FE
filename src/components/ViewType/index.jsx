@@ -13,11 +13,23 @@ import { BACKEND_URL } from '../../constants/apiEndPoints';
 function ViewType(props) {
   const [showModal, setShowModal] = useState(false);
   const [fields, setFields] = useState([]);
+  const [editContentTypeName, setEditContentTypeName] = useState(false);
+  const [addNewField, setAddNewField] = useState(false);
   // const [error, setError] = useState(null);
+
+  const handleEditClick = () => {
+    setShowModal(true);
+    setEditContentTypeName(true);
+  };
+
+  const handleAddNewFieldClick = () => {
+    setAddNewField(true);
+    setShowModal(true);
+  };
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    
+
     try {
       const fetchData = async () => {
         const response = await makeRequest(
@@ -50,22 +62,32 @@ function ViewType(props) {
       <div className="view-type-heading">
         <div className="view-type-title">
           {props.collectionName}
-          <img src={PencilImage} alt="pencil" />
+          <img
+            onClick={handleEditClick}
+            src={PencilImage}
+            alt="pencil"
+          />
+          {editContentTypeName && <ModalInput
+            onClose={() => setShowModal(false)}
+            show={showModal}
+            text={'Content Type Name'}
+            collectionName={props.collectionName}
+          />}
         </div>
         <div className="view-type-subtitle">{fields.length} Fields</div>
       </div>
-      <div onClick={() => setShowModal(true)}>
+      <div onClick={handleAddNewFieldClick}>
         <BorderButton text={'Add another field'} />
       </div>
-      <ModalInput
+      {addNewField && <ModalInput
         onClose={() => setShowModal(false)}
         show={showModal}
         text={'Field'}
         collectionName={props.collectionName}
-      />
+      />}
 
       {fields.map((item, idx) => (
-        <TypeCard text={item} key={idx} />
+        <TypeCard text={item} key={idx} collectionName={props.collectionName} />
       ))}
     </div>
   );

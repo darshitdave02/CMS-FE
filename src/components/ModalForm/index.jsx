@@ -23,13 +23,14 @@ export default function ModalForm(props) {
             },
           },
           {},
-          null // pass null as navigate parameter if you don't want to navigate to an error page
+          null
         );
+
         if (response.status === 200) {
           // Initialize formData state with empty values for each field
           const initialFormData = {};
           response.data.forEach((field) => {
-            initialFormData[field] = '';
+            initialFormData[field] = props.data[field];
           });
           setFormData(initialFormData);
           setFields(response.data);
@@ -38,6 +39,10 @@ export default function ModalForm(props) {
         }
       };
       fetchData();
+      //refresh the page when the modal is closed
+      return () => {
+        window.location.reload();
+      };
     } catch (error) {
       console.log(error);
     }
@@ -48,7 +53,38 @@ export default function ModalForm(props) {
       ...formData,
       [event.target.name]: event.target.value,
     });
+
     console.log(formData);
+  };
+
+  const handleUpateClick = () => {
+    console.log(formData);
+    const token = localStorage.getItem('token');
+    try {
+      const fetchData = async () => {
+        const response = await makeRequest(
+          BACKEND_URL,
+          {
+            url: `collections/${props.collectionName}`,
+            method: 'PUT',
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+          { data: formData },
+          null
+        );
+        if (response.status === 200) {
+          console.log('try ', response.message);
+        } else {
+          console.log('error ', response.message);
+        }
+      };
+      fetchData();
+    } catch (error) {
+      console.log('catch ', error);
+    }
+    props.onClose();
   };
 
   const handleAddClick = () => {
@@ -80,6 +116,7 @@ export default function ModalForm(props) {
       console.log('catch ', error);
     }
     props.onClose();
+    setFormData({});
   };
 
   if (!props.show) {
@@ -89,7 +126,9 @@ export default function ModalForm(props) {
     <div className="modal" onClick={props.onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <span className="modal-title">New {props.collectionName}</span>
+          <span className="modal-title">
+            {props.data === 'New Entry' ? 'New' : 'Edit'} {props.collectionName}
+          </span>
         </div>
         <div className="modal-body">
           {fields.map((field, idx) => (
@@ -108,7 +147,10 @@ export default function ModalForm(props) {
           <button onClick={props.onClose} className="modal-close-button">
             Close
           </button>
-          <button onClick={handleAddClick} className="modal-Add-button">
+          <button
+            onClick={props.data==='New Entry' ? handleAddClick : handleUpateClick}
+            className="modal-Add-button"
+          >
             Add
           </button>
         </div>
@@ -123,4 +165,5 @@ ModalForm.propTypes = {
   show: PropTypes.bool.isRequired,
   text: PropTypes.string,
   collectionName: PropTypes.string,
+  data: PropTypes.object,
 };

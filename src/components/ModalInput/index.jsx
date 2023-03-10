@@ -55,10 +55,67 @@ export default function ModalInput(props) {
     }
   };
 
+  const handleRenameContentType = async () => {
+    const token = localStorage.getItem('token');
+
+    const requestBody = {
+      name: props.collectionName,
+      newName: `${name}`,
+    };
+    try {
+      await makeRequest(BACKEND_URL, {
+        method: 'PATCH',
+        url: '/types/edit',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+      },{data: requestBody}, null);
+      props.onClose();
+      setName('');
+      window.location.reload(); 
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleRenameField = async () => {
+    const token = localStorage.getItem('token');
+
+    const requestBody = {
+      name: props.collectionName,
+      fieldName: props.fieldName,
+      newFieldName: `${name}`,
+    };
+    try {
+      await makeRequest(BACKEND_URL, {
+        method: 'PATCH',
+        url: '/types/field/edit',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+      },{data: requestBody}, null);
+      props.onClose();
+      setName('');
+      window.location.reload(); 
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
   let handleCreate = handleCreateType; // Default to handleCreateType
   if (props.text === 'Field') {
     handleCreate = handleCreateField;
   }
+  if (props.text === 'Content Type Name') {
+    handleCreate = handleRenameContentType;
+  }
+  if (props.text === 'Field Name') {
+    handleCreate = handleRenameField;
+    
+  }
+
+
 
   if (!props.show) {
     return null;
@@ -95,4 +152,5 @@ ModalInput.propTypes = {
   show: propTypes.bool.isRequired,
   text: propTypes.string,
   collectionName: propTypes.string,
+  fieldName: propTypes.string,
 };
