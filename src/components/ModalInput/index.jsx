@@ -64,12 +64,12 @@ export default function ModalInput(props) {
     return null;
   }
   return (
-    <div className="modal" onClick={props.onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <div className="modal-header">
-          <span className="modal-title">Create a new {props.text}</span>
+    <div className="modal-input" onClick={props.onClose}>
+      <div className="modal-input-content" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-input-header">
+          <span className="modal-input-title">Create a new {props.text}</span>
         </div>
-        <div className="modal-body">
+        <div className="modal-input-body">
           <span>Name of the {props.text}</span>
           <input
             type="text"
@@ -77,11 +77,11 @@ export default function ModalInput(props) {
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        <div className="modal-footer">
-          <button onClick={props.onClose} className="modal-close-button">
+        <div className="modal-input-footer">
+          <button onClick={props.onClose} className="modal-input-close-button">
             Close
           </button>
-          <button onClick={handleCreate} className="modal-create-button">
+          <button onClick={handleCreate} className="modal-input-create-button">
             Create
           </button>
         </div>
