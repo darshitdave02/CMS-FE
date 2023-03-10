@@ -4,10 +4,10 @@
 }
 
 .collections {
-    background-color: rgb(51, 51, 51);
+    background-color: rgb(39, 39, 39);
     width: 20vw;
     min-height: 100vh;
-    color: ghostwhite;
+    color: rgb(169,169,169);
     display: flex;
     flex-direction: column;
     padding-left: 0.8rem;
@@ -21,13 +21,16 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 5px;
-    margin-top: 10px;
+    gap: 10px;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
  }
 
 .collection-title {
     margin-top: 20px;
     font-weight: bold;
+    font-size: 1.4rem;
 }
 
 .bullet {
@@ -38,10 +41,11 @@
 }
 
 .ct-builder {
+    width: 100%;
     /* background-color: black; */
     color: white;
     font-weight: bold;
-    margin-top: 15px;
-    
-    /* padding: 5px; */
+    margin-top: 90px;
+    font-size: 1.3rem;
+   
 }

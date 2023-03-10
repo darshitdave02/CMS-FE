@@ -9,3 +9,8 @@
     padding-left: 10px;
     padding-right: 10px;
 }
+
+.white-card:hover {
+    background-color: rgb(80,30,198);
+    color: white
+}
